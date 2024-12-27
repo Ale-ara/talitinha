@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos, Talita!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #2e2c2c, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .message {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #ff6b81;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #ff4757;
+        }
+
+        button:active {
+            animation: buttonPress 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes buttonPress {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">Vamos, Talita! Aperte no botão! ❤️</div>
+        <button onclick="changeBackground()">Clica em mim!</button>
+        <div class="hidden-message" id="hiddenMessage">Retire a baba do rosto, sei que você acabou de acordar!</div>
+        <div class="footer">Veja logo! 🌟</div>
+    </div>
+
+    <script>
+        function changeBackground() {
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            hiddenMessage.style.display = 'block';
+
+            let colors = ["#ff9a9e", "#fad0c4", "#a18cd1", "#fbc2eb", "#8fd3f4", "#84fab0", "#f4dcdc"];
+            let currentIndex = 0;
+            setInterval(() => {
+                document.body.style.background = colors[currentIndex];
+                currentIndex = (currentIndex + 1) % colors.length;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
